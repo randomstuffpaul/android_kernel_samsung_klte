@@ -78,7 +78,7 @@ struct msm_command_ack {
 struct msm_v4l2_subdev {
 	/* FIXME: for session close and error handling such
 	 * as daemon shutdown */
-	int    close_sequence;
+	int close_sequence;
 };
 
 struct msm_session {
@@ -109,14 +109,14 @@ int  msm_create_session(unsigned int session, struct video_device *vdev);
 int msm_destroy_session(unsigned int session_id);
 
 int msm_create_stream(unsigned int session_id,
-	unsigned int stream_id, struct vb2_queue *q);
+		      unsigned int stream_id, struct vb2_queue *q);
 void msm_delete_stream(unsigned int session_id, unsigned int stream_id);
 int  msm_create_command_ack_q(unsigned int session_id, unsigned int stream_id);
 void msm_delete_command_ack_q(unsigned int session_id, unsigned int stream_id);
 struct msm_stream *msm_get_stream(unsigned int session_id,
-	unsigned int stream_id);
+				  unsigned int stream_id);
 struct vb2_queue *msm_get_stream_vb2q(unsigned int session_id,
-	unsigned int stream_id);
+				      unsigned int stream_id);
 struct msm_stream *msm_get_stream_from_vb2q(struct vb2_queue *q);
 struct msm_session *msm_session_find(unsigned int session_id);
 #endif /*_MSM_H */
